@@ -3,7 +3,7 @@ stats.as
 
 #### Actionscript Performance Monitor ####
 
-![stats_as.png](http://github.com/mrdoob/stats.as/raw/master/assets/stats_as.png)
+![stats_as.png](https://github.com/Actionscript3Commons/stats.as/blob/master/assets/stats_as.png)
 
 This class provides a simple info box that will help you monitor your code performance.
 
