@@ -29,41 +29,23 @@ package net.hires.debug {
 		private const WIDTH:uint = 70;
 		private const HEIGHT:uint = 100;
 		
-		private var xml:XML;
 		private var text:TextField;
 		private var fps:uint;
 		private var ms:uint;
 		private var ms_prev:uint;
 		private var mem:Number;
-		private var mem_max:Number;
 		private var graph:Bitmap;
 		private var rectangle:Rectangle;
+		private var mem_max:Number = 0;
+		private var xml:XML = <xml><fps>FPS:</fps><ms>MS:</ms><mem>MEM:</mem><memMax>MAX:</memMax></xml>;;
 		private var theme:Object = { bg: 0x000033, fps: 0xffff00, ms: 0x00ff00, mem: 0x00ffff, memmax: 0xff0070 };
 		
 		/**
 		 * <b>Stats</b> FPS, MS and MEM, all in one.
-		 *
-		 * @param _theme         Example: { bg: 0x202020, fps: 0xC0C0C0, ms: 0x505050, mem: 0x707070, memmax: 0xA0A0A0 }
 		 */
 		
-		public function Stats(_theme:Object = null):void{
-			if (_theme){
-				if (_theme.bg != null)
-					theme.bg = _theme.bg;
-				if (_theme.fps != null)
-					theme.fps = _theme.fps;
-				if (_theme.ms != null)
-					theme.ms = _theme.ms;
-				if (_theme.mem != null)
-					theme.mem = _theme.mem;
-				if (_theme.memmax != null)
-					theme.memmax = _theme.memmax;
-			}
-			
-			mem_max = 0;
-			
-			xml =  <xml><fps>FPS:</fps><ms>MS:</ms><mem>MEM:</mem><memMax>MAX:</memMax></xml>;
-			
+		public function Stats():void{
+
 			var style:StyleSheet = new StyleSheet();
 			style.setStyle("xml", {fontSize: '9px', fontFamily: '_sans', leading: '-2px'});
 			style.setStyle("fps", {color: hex2css(theme.fps)});
